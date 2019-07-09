@@ -2,4 +2,9 @@ require_relative '../config/environment'
 
 
 
-puts "HELLO WORLD"
+
+User.welcome_user
+
+# puts "HELLO WORLD"
+
+binding.pry
