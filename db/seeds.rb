@@ -207,10 +207,12 @@ incorrect_answers: [
 
 
 a.each do |question|
-    Question.find_or_create_all_by(question: question[:question], correct_answer: question[:correct_answer])
+    Question.find_or_create_by(question: question[:question], correct_answer: question[:correct_answer])
 end
 
-
+User.find_or_create_by(name: "John")
+User.find_or_create_by(name: "Tim")
+User.find_or_create_by(name: "Jill")
     
 
 
