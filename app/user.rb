@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
             puts "Please Select A Valid Option"
             self.welcome_user
         end
+        choice
 
     end
 

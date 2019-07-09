@@ -3,9 +3,11 @@ require_relative '../config/environment'
 
 
 
-User.welcome_user
+a = User.welcome_user
 # binding.pry
+if a != "3"
 UserInterface.give_user_questions
+end
 
 # puts "HELLO WORLD"
 
