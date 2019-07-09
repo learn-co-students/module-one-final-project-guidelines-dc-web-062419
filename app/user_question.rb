@@ -1,2 +1,2 @@
-class UserQuestion < ActiveRecord::Base
+class UsersQuestion < ActiveRecord::Base
 end
