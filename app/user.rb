@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
 
+    has_many :user_questions
+    has_many :questions, through: :user_questions
+
 
     def self.welcome_user
         puts "Welcome, Please Enter A Number From The Following Choices"
@@ -15,6 +18,13 @@ class User < ActiveRecord::Base
             self.login
         when "3"
             puts "Have a good day!"
+            choice
+        when choice.length > 1
+           puts "Please Select A Valid Option"
+           self.welcome_user
+        else
+            puts "Please Select A Valid Option"
+            self.welcome_user
         end
 
     end
@@ -23,10 +33,15 @@ class User < ActiveRecord::Base
         puts "Please Enter Username"
         name = gets.chomp
       current_user = self.find_or_create_by(name: name)
+      current_user.high_score ||= 0
+      current_user.last_score ||= 0
       puts "Hi, #{current_user.name}"
       puts  "High Score: #{current_user.high_score}" 
       puts  "Last Score: #{current_user.last_score}" 
     end
+
+
+
 
 
 

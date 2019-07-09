@@ -1,4 +1,5 @@
-Question.delete_all
+Question.destroy_all
+User.destroy_all
 
 
 a = [
@@ -210,9 +211,9 @@ a.each do |question|
     Question.find_or_create_by(question: question[:question], correct_answer: question[:correct_answer])
 end
 
-User.find_or_create_by(name: "John")
-User.find_or_create_by(name: "Tim")
-User.find_or_create_by(name: "Jill")
+# User.find_or_create_by(name: "John")
+# User.find_or_create_by(name: "Tim")
+# User.find_or_create_by(name: "Jill")
     
 
 
