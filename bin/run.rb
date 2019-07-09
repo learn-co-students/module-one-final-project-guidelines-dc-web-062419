@@ -6,9 +6,9 @@ require_relative '../config/environment'
 a = User.welcome_user
 # binding.pry
 if a != "3"
-UserInterface.give_user_questions
+UserInterface.give_user_questions(a)
 end
-
+a.save
 # puts "HELLO WORLD"
 
 binding.pry
