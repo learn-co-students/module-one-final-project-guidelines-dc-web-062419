@@ -31,7 +31,16 @@ class UserInterface
                 user.last_score = current_score
             break
            else
-            puts "WRONG!!!!!!!!!"
+            case current_score
+            when 1..5
+                puts "WRONG! Go study!"
+            when 6..10
+                puts "Meh! You can do better"
+            when 11...15
+                puts "You're ok... but keep trying"
+            when 16..20
+                puts "Ok, I know you've played this 10 times!"
+            end
             puts "Your score is: #{current_score}"
             user.last_score = current_score
             question_info = UsersQuestions.find_or_create_by(question_id: question.id, user_id: user.id)
