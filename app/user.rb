@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
 
     has_many :user_questions
     has_many :questions, through: :user_questions
+    attr_accessor
+
+
 
 
     def self.welcome_user
@@ -13,9 +16,11 @@ class User < ActiveRecord::Base
 
         case choice
         when "1"
-            self.login
+         choice =   self.login
+        #  binding.pry
+        
         when "2"
-            self.login
+          choice =  self.login
         when "3"
             puts "Have a good day!"
             choice
@@ -39,6 +44,7 @@ class User < ActiveRecord::Base
       puts "Hi, #{current_user.name}"
       puts  "High Score: #{current_user.high_score}" 
       puts  "Last Score: #{current_user.last_score}" 
+      current_user
     end
 
 

@@ -6,7 +6,7 @@
 class UserInterface
 
     def     self.give_user_questions
-        current_user_id = 
+        # current_user_id
         current_score = 0
         questions = Question.all.shuffle
             questions.each do |question|
@@ -16,7 +16,7 @@ class UserInterface
            if answer.casecmp(question.correct_answer) == 0
             puts "Correct!"
             current_score += 1
-
+            puts  "Your score is: #{current_score}"
            elsif
             answer == "exit"
           puts  "Your score is: #{current_score}"
