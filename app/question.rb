@@ -10,8 +10,12 @@ class Question < ActiveRecord::Base
                   questions.each do |question|
                     puts "========================================================="
                     puts question.question
-                    puts "Answer 'True' or 'False'"
+                    puts "Answer 'true' or 'false'"
                     answer = gets.chomp.downcase
+                      while answer != "true" && answer != "false" do
+                        puts "Please input 'true' or 'false'"
+                        answer = gets.chomp.downcase
+                      end
                       if answer.casecmp(question.correct_answer) == 0
                         puts "Correct!"
                         current_score += 1

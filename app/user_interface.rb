@@ -2,7 +2,7 @@ class UserInterface
 
   def self.user_homescreen(a)
       puts "Press 1 to Start Normal Game"
-      puts "Press 2 to Start Timed Game"
+      # puts "Press 2 to Start Timed Game"
       puts "Press 3 to see High Scores Table"
       puts "Press 4 to go Welcome Screen"
       puts "Press 5 to Quit"
