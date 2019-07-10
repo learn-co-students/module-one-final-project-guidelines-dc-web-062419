@@ -55,7 +55,7 @@ class Question < ActiveRecord::Base
     sorted_scored = User.all.sort_by{|user| user.high_score}.reverse
       puts "Top 5 Scores"
         sorted_scored.each do |user|
-          if i <= 5
+          if i <= 4
             puts "Name: #{user.name} - Score: #{user.high_score}"
             i += 1
           end
