@@ -5,24 +5,22 @@ class User < ActiveRecord::Base
     attr_accessor
 
 
-
-
     def self.welcome_user
         puts "Welcome, Please Enter A Number From The Following Choices"
         puts ""
-        puts "1. Login"
-        puts "2. Create New User"
-        puts "3. Quit"
+        puts "1. Login or Create User"
+        # puts "2. Create New User"
+        puts "2. Quit"
         choice = gets.chomp
 
         case choice
         when "1"
          choice = self.login
          UserInterface.user_homescreen(choice)
-        when "2"
-          choice = self.login
-          UserInterface.user_homescreen(choice)
-        when "3"
+        # when "2"
+        #   choice = self.login
+        #   UserInterface.user_homescreen(choice)
+      when "2"
             puts ""
             puts "Have a good day!"
             choice
