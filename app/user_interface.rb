@@ -32,7 +32,7 @@ class UserInterface
             break
            else
             case current_score
-            when 1..5
+            when 0..5
                 puts "WRONG! Go study!"
             when 6..10
                 puts "Meh! You can do better"
