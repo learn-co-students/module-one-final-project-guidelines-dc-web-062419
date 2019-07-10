@@ -19,7 +19,7 @@ class UserInterface
         puts "Have a good day!"
       else
           puts "Please Select A Valid Option"
-          self.welcome_user
+          User.welcome_user
       end
       choice
 
