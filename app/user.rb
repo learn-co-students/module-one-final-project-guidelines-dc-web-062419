@@ -31,8 +31,13 @@ class User < ActiveRecord::Base
 
     def self.login
         puts ""
-        puts "Please Enter Username"
+        puts "Returning users: Please Enter your Username!"
+        puts "New users: Please create a Username with less than 10 characters, using a-z"
         name = gets.chomp
+        while !name.match? /\A[a-zA-Z-_0-9]{1,10}\z/
+          puts "Username not accepted. Please create a Username with less than 10 characters, using a-z"
+          name = gets.chomp
+        end
       current_user = self.find_or_create_by(name: name)
       current_user.high_score ||= 0
       current_user.last_score ||= 0

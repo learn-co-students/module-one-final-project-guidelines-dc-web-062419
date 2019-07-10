@@ -8,6 +8,8 @@ class Question < ActiveRecord::Base
               puts ""
               puts "START GAME"
                   questions.each do |question|
+                    question.question.gsub!("&quot;" , '"')
+                    question.question.gsub!("&#039;" , "'")
                     puts "========================================================="
                     puts "Answer 'true' or 'false'. Enter 'exit' to quit"
                     puts question.question
