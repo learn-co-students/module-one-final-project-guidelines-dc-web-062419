@@ -17,8 +17,6 @@ class User < ActiveRecord::Base
         case choice
         when "1"
          choice =   self.login
-        #  binding.pry
-        
         when "2"
           choice =  self.login
         when "3"
@@ -42,14 +40,9 @@ class User < ActiveRecord::Base
       current_user.high_score ||= 0
       current_user.last_score ||= 0
       puts "Hi, #{current_user.name}"
-      puts  "High Score: #{current_user.high_score}" 
-      puts  "Last Score: #{current_user.last_score}" 
+      puts  "High Score: #{current_user.high_score}"
+      puts  "Last Score: #{current_user.last_score}"
       current_user
     end
-
-
-
-
-
 
 end

@@ -214,8 +214,7 @@ end
 User.find_or_create_by(name: "John")
 User.find_or_create_by(name: "Tim")
 User.find_or_create_by(name: "Jill")
-    
+
 
 
 # binding.pry
-
