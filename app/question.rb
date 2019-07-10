@@ -9,10 +9,13 @@ class Question < ActiveRecord::Base
               puts "START GAME"
                   questions.each do |question|
                     puts "========================================================="
+                    puts "Answer 'true' or 'false'. Enter 'exit' to quit"
                     puts question.question
-                    puts "Answer 'true' or 'false'"
+                    puts ""
+                    puts ""
+                    puts ""
                     answer = gets.chomp.downcase
-                      while answer != "true" && answer != "false" do
+                      while answer != "true" && answer != "false" && answer != "exit" do
                         puts "Please input 'true' or 'false'"
                         answer = gets.chomp.downcase
                       end
@@ -22,16 +25,19 @@ class Question < ActiveRecord::Base
                         question_info = UsersQuestions.find_or_create_by(question_id: question.id, user_id: user.id)
                         question_info.got_right = 1
                         question_info.save
+                        user.save
                           if current_score > user.high_score
                             puts "NEW HIGH SCORE OF #{current_score}!!!!"
                             user.high_score = current_score
                           else
                             puts  "Your score is: #{current_score}"
+                            puts ""
                           end
                       elsif
                         answer == "exit"
                         puts  "Your score was: #{current_score}"
                         user.last_score = current_score
+                        user.save
                         UserInterface.user_homescreen(user)
                         break
                       else
@@ -55,6 +61,7 @@ class Question < ActiveRecord::Base
                         question_info = UsersQuestions.find_or_create_by(question_id: question.id, user_id: user.id)
                         question_info.got_right = 0
                         question_info.save
+                        user.save
                         puts "================================================="
                         UserInterface.user_homescreen(user)
                         break
