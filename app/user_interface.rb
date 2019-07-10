@@ -4,7 +4,8 @@ class UserInterface
       puts "Press 1 to Start Normal Game"
       puts "Press 2 to Start Timed Game"
       puts "Press 3 to see High Scores Table"
-      puts "Press 4 to Quit"
+      puts "Press 4 to go Welcome Screen"
+      puts "Press 5 to Quit"
       choice = gets.chomp
 
       case choice
@@ -16,13 +17,13 @@ class UserInterface
       when "3"
         Question.high_score_board(a)
       when "4"
+        User.welcome_user
+      when "5"
         puts "Have a good day!"
       else
+          puts "------------------------------"
           puts "Please Select A Valid Option"
-          User.welcome_user
+          self.user_homescreen(a)
       end
-      choice
-
   end
-
 end

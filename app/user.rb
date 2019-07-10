@@ -17,9 +17,11 @@ class User < ActiveRecord::Base
 
         case choice
         when "1"
-         choice =   self.login
+         choice = self.login
+         UserInterface.user_homescreen(choice)
         when "2"
-          choice =  self.login
+          choice = self.login
+          UserInterface.user_homescreen(choice)
         when "3"
             puts ""
             puts "Have a good day!"
@@ -28,10 +30,10 @@ class User < ActiveRecord::Base
             puts "Please Select A Valid Option"
             self.welcome_user
         end
-
     end
 
     def self.login
+        puts ""
         puts "Please Enter Username"
         name = gets.chomp
       current_user = self.find_or_create_by(name: name)
