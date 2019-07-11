@@ -96,8 +96,8 @@ class Question < ActiveRecord::Base
       UserInterface.user_homescreen(a)
   end
 
-  def low_score_board
-    User.all.sort_by{|user| user.high_score}
-  end
+  # def low_score_board
+  #   User.all.sort_by{|user| user.high_score}
+  # end
 
 end
