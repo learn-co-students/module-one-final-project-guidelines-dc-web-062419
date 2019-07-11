@@ -32,9 +32,10 @@ class User < ActiveRecord::Base
     def self.login
         puts ""
         puts "Returning users: Please Enter your Username!"
-        puts "New users: Please create a Username with less than 10 characters, using a-z"
+        puts "New users: Please create a Username with less than 10 characters."
+        puts "Only A-z, 0-9, and '_' '-' are allowed, no spaces."
         name = gets.chomp
-        while !name.match? /\A[a-zA-Z-_0-9]{1,10}\z/
+        while !name.match? /\A[a-zA-Z\-_0-9]{1,10}\z/
           puts "Username not accepted. Please create a Username with less than 10 characters, using a-z"
           name = gets.chomp
         end

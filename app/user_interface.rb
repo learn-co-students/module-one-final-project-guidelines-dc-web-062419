@@ -2,12 +2,12 @@ class UserInterface
 
   def self.user_homescreen(user)
       puts "Enter 1 to Start Normal Game"
-      # puts "Press 2 to Start Timed Game"
       puts "Enter 2 to modify User Name"
       puts "Enter 3 to delete User"
       puts "Enter 4 to see High Scores Table"
       puts "Enter 5 to go Welcome Screen"
-      puts "Enter 6 to Exit"
+      puts "Press 6 to Start Timed Game"
+      puts "Enter 7 to Exit"
       choice = gets.chomp.downcase
 
       case choice
@@ -38,6 +38,8 @@ class UserInterface
       when "5"
         User.welcome_user
       when "6"
+        
+      when "7"
         puts "Have a good day!"
       when "exit"
         puts "Have a good day!"
