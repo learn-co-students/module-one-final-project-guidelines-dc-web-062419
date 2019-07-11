@@ -6,20 +6,26 @@ class TimedGame
                     questions = Question.all.shuffle
                     puts ""
                     puts "30 seconds GO!!!!!!!"
-        Timeout::timeout(5){
+        Timeout::timeout(32){
+            end_time = Time.now + 30
                         questions.each do |question|
                             question.question.gsub!("&quot;" , '"')
                             question.question.gsub!("&#039;" , "'")
                             question_tracker << question
-                            puts "========================================================="
-                            puts "Answer 'true' or 'false'. Enter 'exit' to quit"
+                            current_time = end_time - Time.now
+                            if current_time < 1
+                                current_time = 1
+                            end
+                            puts "=====================TIME REMAINING: Less Than #{current_time.to_i}s =================================="
+                            puts ""
                             puts question.question
                             puts ""
                             puts ""
                             puts ""
+                            puts  "Answer 'true' or 'false'. Enter 'exit' to quit"  
                             answer = gets.chomp.downcase
                             while answer != "true" && answer != "false" && answer != "exit" do
-                                puts "Please input 'true' or 'false'"
+                                puts "Please input 'true' or 'false'  "
                                 answer = gets.chomp.downcase
                             end
                             if answer.casecmp(question.correct_answer) == 0
@@ -33,25 +39,19 @@ class TimedGame
                                     puts "NEW HIGH SCORE OF #{current_score}!!!!"
                                     user.high_score = current_score
                                 else
-                                    puts  "Your score is: #{current_score}"
+                                    puts  "Your Score Was: #{current_score}"
                                     puts ""
                                 end
                             elsif
                                 answer == "exit"
-                                # puts  "Your score was: #{current_score}"
-                                # user.last_score = current_score
-                                # user.save
-                                # UserInterface.user_homescreen(user)
+
                                 break
 
                             else
                                 puts ""
                                 puts "Wrong!"
                                 break
-                            #     puts ""
-                            #     puts "Wrong!"
-                            # self.endgame(user, current_score, question_tracker)
-                            # break
+    
                             end
                     end}
                     puts ""
@@ -66,7 +66,7 @@ class TimedGame
 
             def self.endgame(user, current_score, question_tracker)
                 question = question_tracker.last
-                puts "Your score was: #{current_score}"
+                puts "Your Score Was: #{current_score}"
                         case current_score
                         when 0..13
                           puts ""
@@ -88,9 +88,11 @@ class TimedGame
                         user.save
                         puts ""
                         puts "================================================="
+                        puts ""
                         puts "Welcome Back, #{user.name}!"
-                        puts "Your Last Score was: #{current_score}"
-                        puts "Your High Score is: #{user.high_score}"
+                        puts "Your Most Recent Score Was: #{current_score}"
+                        puts "Your High Score Is: #{user.high_score}"
+                        puts ""
                         UserInterface.user_homescreen(user)
                 end
             

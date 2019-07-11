@@ -44,7 +44,8 @@ class User < ActiveRecord::Base
       current_user.last_score ||= 0
       current_user.save
       puts "==========================================="
-      puts "Hi, #{current_user.name}"
+      puts ""
+      puts "Hi, #{current_user.name}!"
       puts  "High Score: #{current_user.high_score}"
       puts  "Last Score: #{current_user.last_score}"
       puts ""
