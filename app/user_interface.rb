@@ -38,7 +38,7 @@ class UserInterface
       when "5"
         User.welcome_user
       when "6"
-        
+        TimedGame.give_user_questions(user)
       when "7"
         puts "Have a good day!"
       when "exit"
