@@ -39,7 +39,7 @@ class TimedGame
                                     puts "NEW HIGH SCORE OF #{current_score}!!!!"
                                     user.high_score = current_score
                                 else
-                                    puts  "Your Score Was: #{current_score}"
+                                    puts  "Your Score is: #{current_score}"
                                     puts ""
                                 end
                             elsif
@@ -50,7 +50,13 @@ class TimedGame
                             else
                                 puts ""
                                 puts "Wrong!"
-                                break
+                                puts  "Your Score is: #{current_score}"
+                                puts ""             
+                                question_info = UsersQuestions.find_or_create_by(question_id: question.id, user_id: user.id)
+                                question_info.got_right = 0
+                                question_info.save
+                                user.save                   
+                                # break
     
                             end
                     end}
@@ -59,6 +65,7 @@ class TimedGame
                     rescue Timeout::Error
                         puts ""
         puts "TIMES UP!! TIMES UP!! TIMES UP!!"
+        puts ""
         self.endgame(user, current_score, question_tracker)
         end
 
@@ -91,7 +98,7 @@ class TimedGame
                         puts ""
                         puts "Welcome Back, #{user.name}!"
                         puts "Your Most Recent Score Was: #{current_score}"
-                        puts "Your High Score Is: #{user.high_score}"
+                        puts "Your High Score is: #{user.high_score}"
                         puts ""
                         UserInterface.user_homescreen(user)
                 end

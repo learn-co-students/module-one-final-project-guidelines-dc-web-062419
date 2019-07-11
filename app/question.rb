@@ -33,7 +33,7 @@ class Question < ActiveRecord::Base
                             puts "NEW HIGH SCORE OF #{current_score}!!!!"
                             user.high_score = current_score
                           else
-                            puts  "Your score is: #{current_score}"
+                            puts  "Your Score is: #{current_score}"
                             puts ""
                           end
                       elsif
