@@ -3,7 +3,7 @@ class UserInterface
   def self.user_homescreen(user)
       puts "Enter 1 to START STREAKING"
       puts "Enter 2 to Start NEED FOR SPEED!"
-      puts "Enter 2 to Modify User Name"
+      puts "Enter 3 to Modify User Name"
       puts "Enter 4 to see High Scores Table"
       puts "Enter 5 to Go To Welcome Screen"
       puts "Enter 6 to Delete User"

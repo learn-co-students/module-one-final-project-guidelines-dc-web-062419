@@ -14,8 +14,8 @@ class User < ActiveRecord::Base
 
         case choice
         when "1"
-         choice = self.login
-         UserInterface.user_homescreen(choice)
+         user = self.login
+         UserInterface.user_homescreen(user)
         # when "2"
         #   choice = self.login
         #   UserInterface.user_homescreen(choice)
